@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+    <title>Interactive</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: lightskyblue;
+            transition: all .25s ;
+        }
+        div {
+            text-align: center;
+        }
+        button {
+            border: 1px solid color #000;
+            padding: 15px 20px;
+            border-radius: 20px;
+            background: transparent;
+            cursor: pointer;
+            outline: none;
+        }
+        h1, h3 {
+            animation: down 0.25s;
+        }
+        @keyframes down {
+                from {
+                    transform: translateY(-50px);
+                }
+                to {
+                    transform: translateY(0);
+                }
+        }
+            
+    </style>
+</head>
+<body>
+    <div>
+        <h3>Hello Valentin</h3>
+        <h1> Now is 15:30:50</h1>
+        <button>Change background</button>
+    </div>
+    <script>
+        const name = prompt('What is your name?')
+        document.querySelector('h3').textContent = 'Hello, ' +name
+        document.querySelector('h1').textContent= 'Now '+new Date().toLocaleTimeString()
+        setInterval(function() {
+        document.querySelector('h1').textContent= 'Now '+new Date().toLocaleTimeString()  
+        }, 1000);
+
+        const colors = ['chocolate','gray', 'green', 'yellow', 'coral', 'orange', 'white']
+        let index = 0
+        document.querySelector('button').onclick = function() {
+            document.body.style.background = colors[index]
+            index++
+            if (index >= colors.length) index = 0 
+        } 
+    </script>
+    
+</body>
+</html>
